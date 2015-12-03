@@ -122,6 +122,10 @@ installer.</code></pre>
 </dd><dt><strong>letsencrypt_path</strong>
 <dd>
 <p>The path to the letsencrypt installation.</p>
+</dd><dt><strong>additional_args</strong>
+<dd>
+<p>An array of additional command line arguments to pass to the
+`letsencrypt-auto` command.</p>
 </dd></dl>
 </p>
   </div>
@@ -134,13 +138,13 @@ installer.</code></pre>
 <h2>Parameter Summary</h2>
 <div class="tags">
   <ul class="param">
-    <li><span class="name">domains </span><span class="type">(<tt>Array[String]</tt>)</span><tt> => [$title]</tt></li><li><span class="name">plugin </span><span class="type">(<tt>Enum['apache', 'standalone', 'webroot']</tt>)</span><tt> => 'standalone'</tt></li><li><span class="name">letsencrypt_path </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::path</tt></li>
+    <li><span class="name">domains </span><span class="type">(<tt>Array[String]</tt>)</span><tt> => [$title]</tt></li><li><span class="name">plugin </span><span class="type">(<tt>Enum['apache', 'standalone', 'webroot']</tt>)</span><tt> => 'standalone'</tt></li><li><span class="name">letsencrypt_path </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::path</tt></li><li><span class="name">additional_args </span><span class="type">(<tt>Optional[Array[String]]</tt>)</span><tt> => undef</tt></li>
   </ul>
 </div>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec  3 16:30:48 2015 by
+  Generated on Thu Dec  3 16:55:43 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.4).
 </div>
