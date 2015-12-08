@@ -121,7 +121,11 @@
 </code></pre>
 
 <h3 id="label-Parameters%3A">Parameters:</h3>
-<dl class="rdoc-list label-list"><dt><strong>path</strong>
+<dl class="rdoc-list label-list"><dt><strong>email</strong>
+<dd>
+<p>The email address to use to register with Let&#39;s Encrypt. This takes
+precedence over an &#39;email&#39; setting defined in $config.</p>
+</dd><dt><strong>path</strong>
 <dd>
 <p>The path to the letsencrypt installation.</p>
 </dd><dt><strong>repo</strong>
@@ -143,6 +147,12 @@ file.</p>
 </dd><dt><strong>manage_dependencies</strong>
 <dd>
 <p>A feature flag to toggle the management of the letsencrypt dependencies.</p>
+</dd><dt><strong>agree_tos</strong>
+<dd>
+<p>A flag to agree to the Let&#39;s Encrypt Terms of Service.</p>
+</dd><dt><strong>unsafe_registration</strong>
+<dd>
+<p>A flag to allow using the &#39;register-unsafely-without-email&#39; flag.</p>
 </dd></dl>
 </p>
   </div>
@@ -155,13 +165,13 @@ file.</p>
 <h2>Parameter Summary</h2>
 <div class="tags">
   <ul class="param">
-    <li><span class="name">path </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::path</tt></li><li><span class="name">repo </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::repo</tt></li><li><span class="name">version </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::version</tt></li><li><span class="name">config_file </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::config_file</tt></li><li><span class="name">config </span><span class="type">(<tt>Hash[String, Any]</tt>)</span><tt> => $letsencrypt::params::config</tt></li><li><span class="name">manage_config </span><span class="type">(<tt>Boolean</tt>)</span><tt> => $letsencrypt::params::manage_config</tt></li><li><span class="name">manage_dependencies </span><span class="type">(<tt>Boolean</tt>)</span><tt> => $letsencrypt::params::manage_dependencies</tt></li>
+    <li><span class="name">email </span><span class="type">(<tt>Optional[String]</tt>)</span><tt> => undef</tt></li><li><span class="name">path </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::path</tt></li><li><span class="name">repo </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::repo</tt></li><li><span class="name">version </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::version</tt></li><li><span class="name">config_file </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::config_file</tt></li><li><span class="name">config </span><span class="type">(<tt>Hash[String, Any]</tt>)</span><tt> => $letsencrypt::params::config</tt></li><li><span class="name">manage_config </span><span class="type">(<tt>Boolean</tt>)</span><tt> => $letsencrypt::params::manage_config</tt></li><li><span class="name">manage_dependencies </span><span class="type">(<tt>Boolean</tt>)</span><tt> => $letsencrypt::params::manage_dependencies</tt></li><li><span class="name">agree_tos </span><span class="type">(<tt>Boolean</tt>)</span><tt> => $letsencrypt::params::agree_tos</tt></li><li><span class="name">unsafe_registration </span><span class="type">(<tt>Boolean</tt>)</span><tt> => $letsencrypt::params::unsafe_registration</tt></li>
   </ul>
 </div>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec  3 16:55:43 2015 by
+  Generated on Tue Dec  8 11:28:28 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.4).
 </div>

@@ -89,19 +89,47 @@ src="https://travis-ci.org/danzilio/puppet-letsencrypt.svg"></a> <a
 href="http://danzilio.github.io/puppet-letsencrypt"><img
 src="http://img.shields.io/badge/docs-puppet--strings-ff69b4.svg?style=flat"></a></p>
 
-<p>This module installs the Letsencrypt client from source and allows you to
-request certificates.</p>
+<p>This module installs the Let&#39;s Encrypt client from source and allows
+you to request certificates.</p>
 
 <h2 id="label-Support">Support</h2>
 
 <p>This module requires Puppet &gt;= 4.0. and is currently only written to
-work on Debian-based operating systems.</p>
+work on Debian and RedHat based operating systems.</p>
 
 <h2 id="label-Usage">Usage</h2>
 
-<p>To install the Letsencrypt client with the default configuration settings:</p>
+<p>To install the Let&#39;s Encrypt client with the default configuration
+settings you must provide your email address to register with the Let&#39;s
+Encrypt servers:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_include'>include</span> <span class='id identifier rubyid_letsencrypt'>letsencrypt</span></code></pre>
+<pre class="code ruby"><code class="ruby">class { ::letsencrypt:
+  email =&gt; &#39;foo@example.com&#39;,
+}
+</code></pre>
+
+<p>This will install the Let&#39;s Encrypt client and its dependencies, agree
+to the Terms of Service, initialize the client, and install a configuration
+file for the client.</p>
+
+<p>Alternatively, you can specify your email address in the $config hash:</p>
+
+<pre class="code ruby"><code class="ruby">class { ::letsencrypt:
+  config =&gt; {
+    email  =&gt; &#39;foo@example.com&#39;,
+    server =&gt; &#39;https://acme-v01.api.letsencrypt.org/directory&#39;,
+  }
+}
+</code></pre>
+
+<p>If you don&#39;t wish to provide your email address, you can set the
+<code>unsafe_registration</code> parameter to <code>true</code> (this is
+not recommended):</p>
+
+<pre class="code ruby"><code class="ruby">class { ::letsencrypt:
+  unsafe_registration =&gt; true,
+}
+</code></pre>
 
 <p>To request a certificate for <code>foo.example.com</code> using the
 <code>certonly</code> installer and the <code>standalone</code>
@@ -115,7 +143,7 @@ the <code>apache</code> authenticator:</p>
 
 <pre class="code ruby"><code class="ruby">letsencrypt::certonly { &#39;foo&#39;:
   domains =&gt; [&#39;foo.example.com&#39;, &#39;bar.example.com&#39;],
-  plugin  =&gt; &#39;apache&#39;
+  plugin  =&gt; &#39;apache&#39;,
 }
 </code></pre>
 
@@ -127,7 +155,7 @@ those arguments:</p>
 <pre class="code ruby"><code class="ruby">letsencrypt::certonly { &#39;foo&#39;:
   domains         =&gt; [&#39;foo.example.com&#39;, &#39;bar.example.com&#39;],
   plugin          =&gt; &#39;apache&#39;,
-  additional_args =&gt; [&#39;--foo bar&#39;, &#39;--baz quuz&#39;]
+  additional_args =&gt; [&#39;--foo bar&#39;, &#39;--baz quuz&#39;],
 }
 </code></pre>
 
@@ -152,7 +180,7 @@ help, just ask!</p>
 </div></div>
 
     <div id="footer">
-  Generated on Thu Dec  3 16:55:43 2015 by
+  Generated on Tue Dec  8 11:28:28 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.4).
 </div>
