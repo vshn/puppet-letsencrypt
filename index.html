@@ -94,8 +94,19 @@ you to request certificates.</p>
 
 <h2 id="label-Support">Support</h2>
 
-<p>This module requires Puppet &gt;= 4.0. and is currently only written to
-work on Debian and RedHat based operating systems.</p>
+<p>This module requires Puppet &gt;= 3.4. and is currently only written to
+work on Debian and RedHat based operating systems, although it may work on
+others.</p>
+
+<h2 id="label-Dependencies">Dependencies</h2>
+
+<p>On EL (Red Hat, CentOS etc.) systems, the EPEL repository needs to be
+enabled for the Let&#39;s Encrypt client package.</p>
+
+<p>The module can integrate with <a
+href="https://forge.puppetlabs.com/stahnma/epel">stahnma/epel</a> to set up
+the repo by setting the <code>configure_epel</code> parameter to
+<code>true</code> and installing the module.</p>
 
 <h2 id="label-Usage">Usage</h2>
 
@@ -105,6 +116,14 @@ Encrypt servers:</p>
 
 <pre class="code ruby"><code class="ruby">class { ::letsencrypt:
   email =&gt; &#39;foo@example.com&#39;,
+}
+</code></pre>
+
+<p>If using EL7 without EPEL-preconfigured, add <code>configure_epel</code>:</p>
+
+<pre class="code ruby"><code class="ruby">class { ::letsencrypt:
+  configure_epel =&gt; true,
+  email          =&gt; &#39;foo@example.com&#39;,
 }
 </code></pre>
 
@@ -180,9 +199,9 @@ help, just ask!</p>
 </div></div>
 
     <div id="footer">
-  Generated on Tue Dec  8 11:28:28 2015 by
+  Generated on Mon Feb 22 11:36:30 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.4).
+  0.8.7.6 (ruby-2.1.2).
 </div>
 
   </body>

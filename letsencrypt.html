@@ -133,7 +133,12 @@ precedence over an &#39;email&#39; setting defined in $config.</p>
 <p>A Git URL to install the Let&#39;s encrypt client from.</p>
 </dd><dt><strong>version</strong>
 <dd>
-<p>The Git ref (tag, sha, branch) to check out when installing the client.</p>
+<p>The Git ref (tag, sha, branch) to check out when installing the client with
+the `vcs` method.</p>
+</dd><dt><strong>package_ensure</strong>
+<dd>
+<p>The value passed to `ensure` when installing the client with the `package`
+method.</p>
 </dd><dt><strong>config_file</strong>
 <dd>
 <p>The path to the configuration file for the letsencrypt cli.</p>
@@ -144,9 +149,20 @@ precedence over an &#39;email&#39; setting defined in $config.</p>
 <dd>
 <p>A feature flag to toggle the management of the letsencrypt configuration
 file.</p>
+</dd><dt><strong>manage_install</strong>
+<dd>
+<p>A feature flag to toggle the management of the letsencrypt client
+installation.</p>
 </dd><dt><strong>manage_dependencies</strong>
 <dd>
 <p>A feature flag to toggle the management of the letsencrypt dependencies.</p>
+</dd><dt><strong>configure_epel</strong>
+<dd>
+<p>A feature flag to include the &#39;epel&#39; class and depend on it for
+package installation.</p>
+</dd><dt><strong>install_method</strong>
+<dd>
+<p>Method to install the letsencrypt client, either package or vcs.</p>
 </dd><dt><strong>agree_tos</strong>
 <dd>
 <p>A flag to agree to the Let&#39;s Encrypt Terms of Service.</p>
@@ -165,15 +181,15 @@ file.</p>
 <h2>Parameter Summary</h2>
 <div class="tags">
   <ul class="param">
-    <li><span class="name">email </span><span class="type">(<tt>Optional[String]</tt>)</span><tt> => undef</tt></li><li><span class="name">path </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::path</tt></li><li><span class="name">repo </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::repo</tt></li><li><span class="name">version </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::version</tt></li><li><span class="name">config_file </span><span class="type">(<tt>String</tt>)</span><tt> => $letsencrypt::params::config_file</tt></li><li><span class="name">config </span><span class="type">(<tt>Hash[String, Any]</tt>)</span><tt> => $letsencrypt::params::config</tt></li><li><span class="name">manage_config </span><span class="type">(<tt>Boolean</tt>)</span><tt> => $letsencrypt::params::manage_config</tt></li><li><span class="name">manage_dependencies </span><span class="type">(<tt>Boolean</tt>)</span><tt> => $letsencrypt::params::manage_dependencies</tt></li><li><span class="name">agree_tos </span><span class="type">(<tt>Boolean</tt>)</span><tt> => $letsencrypt::params::agree_tos</tt></li><li><span class="name">unsafe_registration </span><span class="type">(<tt>Boolean</tt>)</span><tt> => $letsencrypt::params::unsafe_registration</tt></li>
+    <li><span class="name">email </span><span class="type">(<tt>Any</tt>)</span><tt> => undef</tt></li><li><span class="name">path </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::path</tt></li><li><span class="name">repo </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::repo</tt></li><li><span class="name">version </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::version</tt></li><li><span class="name">package_ensure </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::package_ensure</tt></li><li><span class="name">config_file </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::config_file</tt></li><li><span class="name">config </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::config</tt></li><li><span class="name">manage_config </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::manage_config</tt></li><li><span class="name">manage_install </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::manage_install</tt></li><li><span class="name">manage_dependencies </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::manage_dependencies</tt></li><li><span class="name">configure_epel </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::configure_epel</tt></li><li><span class="name">install_method </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::install_method</tt></li><li><span class="name">agree_tos </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::agree_tos</tt></li><li><span class="name">unsafe_registration </span><span class="type">(<tt>Any</tt>)</span><tt> => $letsencrypt::params::unsafe_registration</tt></li>
   </ul>
 </div>
 </div>
 
     <div id="footer">
-  Generated on Tue Dec  8 11:28:28 2015 by
+  Generated on Mon Feb 22 11:36:30 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.4).
+  0.8.7.6 (ruby-2.1.2).
 </div>
 
   </body>
